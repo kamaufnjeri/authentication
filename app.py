@@ -1,4 +1,4 @@
-from app import create_app, db, DevelopmentConfig
+from app.app import create_app, db, DevelopmentConfig
 
 app = create_app(DevelopmentConfig)
 
