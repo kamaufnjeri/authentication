@@ -1,6 +1,6 @@
 import unittest
 import os
-from app.app import create_app, db, TestingConfig
+from app import create_app, db, TestingConfig
 from dotenv import load_dotenv
 from app.models import User, Organization
 from flask_jwt_extended import decode_token
