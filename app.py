@@ -1,6 +1,4 @@
-from app import app, db, DevelopmentConfig
-
-app = create_app(DevelopmentConfig)
+from app import app, db
 
 if __name__ == "__main__":
     with app.app_context():
