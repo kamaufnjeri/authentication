@@ -12,6 +12,7 @@ user_utils = UserUtils()
 
 
 @auth_bp.route('/register', methods=['POST'], strict_slashes=False)
+
 def create_user():
     try:
         data = request.get_json()
