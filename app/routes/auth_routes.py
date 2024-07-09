@@ -4,14 +4,14 @@ from app import db
 from flask_jwt_extended import create_access_token
 
 
-auth_bp = Blueprint("auth_bp", __name__, url_prefix='/auth', strict_slashes=False)
+auth_bp = Blueprint("auth_bp", __name__, url_prefix='/auth')
 
 
 org_utils = OrganizationUtils()
 user_utils = UserUtils()
 
 
-@auth_bp.route('/register', methods=['POST'])
+@auth_bp.route('/register', methods=['POST'], strict_slashes=False)
 def create_user():
     try:
         data = request.get_json()
@@ -57,7 +57,7 @@ def create_user():
         }), 400
     
 
-@auth_bp.route('/login', methods=['POST'])
+@auth_bp.route('/login', methods=['POST'], strict_slashes=False)
 def login():
     try:
         data = request.get_json()

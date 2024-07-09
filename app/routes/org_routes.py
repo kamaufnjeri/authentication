@@ -4,11 +4,11 @@ from app.utils import UserUtils, OrganizationUtils
 from app.models import User, Organization
 from app import db
 
-org_bp = Blueprint('org_bp', __name__, url_prefix='/api/organisations', strict_slashes=False)
+org_bp = Blueprint('org_bp', __name__, url_prefix='/api/organisations')
 user_utils = UserUtils()
 org_utils = OrganizationUtils()
 
-@org_bp.route('/', methods=['GET'])
+@org_bp.route('/', methods=['GET'], strict_slashes=False)
 @jwt_required()
 def get_user_organizations():
     try:
@@ -49,7 +49,7 @@ def get_user_organizations():
         }), 400
 
 
-@org_bp.route('/<string:orgId>', methods=['GET'])
+@org_bp.route('/<string:orgId>', methods=['GET'], strict_slashes=False)
 @jwt_required()
 def get_organization(orgId):
     try:
@@ -105,7 +105,7 @@ def get_organization(orgId):
 
 
 
-@org_bp.route('/', methods=['POST'])
+@org_bp.route('/', methods=['POST'], strict_slashes=False)
 @jwt_required()
 def create_organization():
     try:
@@ -144,7 +144,7 @@ def create_organization():
         }), 400
 
 
-@org_bp.route('/<string:orgId>/users', methods=['POST'])
+@org_bp.route('/<string:orgId>/users', methods=['POST'], strict_slashes=False)
 @jwt_required()
 def add_user_to_organization(orgId):
     try:
