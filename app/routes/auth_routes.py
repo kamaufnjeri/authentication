@@ -4,7 +4,8 @@ from app import db
 from flask_jwt_extended import create_access_token
 
 
-auth_bp = Blueprint("auth_bp", __name__, url_prefix='/auth')
+auth_bp = Blueprint("auth_bp", __name__, url_prefix='/auth', strict_slashes=False)
+
 
 org_utils = OrganizationUtils()
 user_utils = UserUtils()

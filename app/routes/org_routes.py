@@ -4,7 +4,7 @@ from app.utils import UserUtils, OrganizationUtils
 from app.models import User, Organization
 from app import db
 
-org_bp = Blueprint('org_bp', __name__, url_prefix='/api/organisations')
+org_bp = Blueprint('org_bp', __name__, url_prefix='/api/organisations', strict_slashes=False)
 user_utils = UserUtils()
 org_utils = OrganizationUtils()
 
